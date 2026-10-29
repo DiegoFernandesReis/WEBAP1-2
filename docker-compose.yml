@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile
     container_name: webap_webserver
     ports:
-      - "8080:80"
+      - "80:80"
     volumes:
       - ./WEBAP:/var/www/html/WEBAP
       # Mount the Virtual Host config persistently:
