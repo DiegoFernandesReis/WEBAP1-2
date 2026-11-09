@@ -6,13 +6,29 @@
     <title>Document</title>
 </head>
 <body>
+    <input type="text" id="input" placeholder="Enter your name">
+    <button id="btn">Click me</button>
+    <div id="result"></div>
+    
     <script>
         $(document).ready(function(){
-            $("btn").input(function(){
-                $("#result").load("name.txt");
+            $("#btn").on("click", function(){
+                var value = $("#input").val();
+
+
+                if(value === "class"){
+                    $("#result").load("class.txt");
+                }
+                else if (value === "firstname"){
+                    $("#result").load("firstname.txt");
+                }
+                else if (value === "lastname"){
+                    $("#result").load("lastname.txt");
+                }
+
             })
         })
     </script>
-    <button id="btn">Click me</button>
+   
 </body>
 </html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="nav">
+  <ul>
+    <li><a href="#" onclick="loadPage('lighthouse.html')">Lighthouse</a></li>
+    <li><a href="#" onclick="loadPage('trillium.html')">Trillium</a></li>
+    <li><a href="#" onclick="loadPage('https://www.artsetmetiers.lu/')">Lycée des Arts et Métiers</a></li>
+    </ul>
+</div>
+<div id="website"></div>
+<script>
+ function loadPage(page) {
+    $("#website").load(page);
+}
+</script>
+</body>
+</html>
