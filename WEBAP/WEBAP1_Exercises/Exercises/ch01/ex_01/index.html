@@ -1,21 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Exercise 1.1</title>
     <link rel="stylesheet" href="../../../assets/exercise.css">
     <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
     <script>
-        $(document).ready(function()
-        {
-            // TODO: bind a click event to every button (b1 … b8)
-
-            // TODO: highlight the selected elements with css("background-color", "yellow")
-
-            // TODO: #reset removes all backgrounds
+        $(document).ready(function () {
+            $("#b1").click(function () {
+                $("p").css("background-color", "yellow");
+            });
+            $("#b2").click(function () {
+                $("#left").css("background-color", "lightblue");
+            });
+            $("#b3").click(function () {
+                $("#left p").css("background-color", "lightgreen");
+            });
+            $("#b4").click(function () {
+                $(".special").css("background-color", "lightcoral");
+            });
+            $("#b5").click(function () {
+                $("p.special").css("background-color", "lightpink");
+            });
+            $("#b6").click(function () {
+                $("div#right p.special").css("background-color", "lightgray");
+            });
+            $("#b7").click(function () {
+                $("#page p").css("background-color", "lightyellow");
+            });
+            $("#b8").click(function () {
+            $("#page > p").css("background-color", "lightcyan");
+            });
+            $("#reset").click(function () {
+            $("p, div").css("background-color", "");
+            });
         });
+
+
     </script>
 </head>
+
 <body>
     <h2>Exercise 1.1 – Selectors</h2>
     <div id="buttons">
@@ -45,4 +70,5 @@
         </div>
     </div>
 </body>
+
 </html>
