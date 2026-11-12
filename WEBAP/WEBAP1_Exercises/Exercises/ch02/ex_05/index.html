@@ -2,24 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>A1 – Task 5</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
-    <script>
-        $(document).ready(function()
-        {
-            // TODO: click on a link in #nav: do not follow the link, load its href into #website
-        });
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Document</title>
 </head>
 <body>
     <div id="nav">
-        <ul>
-            <li><a href="lighthouse.html">Lighthouse</a></li>
-            <li><a href="trillium.html">Trillium</a></li>
-            <li><a href="https://www.lpem.lu">LPEM</a></li>
-        </ul>
-    </div>
-    <div id="website"></div>
+  <ul>
+    <li><a href="#" onclick="loadPage('lighthouse.html')">Lighthouse</a></li>
+    <li><a href="#" onclick="loadPage('trillium.html')">Trillium</a></li>
+    <li><a href="#" onclick="loadPage('https://www.artsetmetiers.lu/')">Lycée des Arts et Métiers</a></li>
+    </ul>
+</div>
+<div id="website"></div>
+<script>
+ function loadPage(page) {
+    $("#website").load(page);
+}
+</script>
 </body>
 </html>
