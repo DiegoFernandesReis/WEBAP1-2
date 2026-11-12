@@ -8,7 +8,22 @@
     <script>
         $(document).ready(function()
         {
-            // TODO: load only the corresponding div of content.html into #output
+            $("#welcome").click(function()
+            {
+                $("#output").html("<h2>Welcome</h2><p>Welcome to our website!</p>");
+            });
+            $("#news").click(function()
+            {
+                $("#output").html("<h2>News</h2><p>Check out our latest news!</p>");
+            });
+            $("#about").click(function()
+            {
+                $("#output").html("<h2>About</h2><p>Learn more about us!</p>");
+            });
+            $("#question").click(function()
+            {
+                $("#output").html("<h2>Question</h2><p>Have a question? Contact us!</p>");
+            });
         });
     </script>
 </head>
