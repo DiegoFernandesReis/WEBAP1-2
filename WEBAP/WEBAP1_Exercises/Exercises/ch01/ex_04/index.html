@@ -8,6 +8,42 @@
     <script>
         $(document).ready(function()
         {
+            $("#calc").click(function() {
+                var a = parseFloat($("#a").val());
+                var b = parseFloat($("#b").val());
+                var op = $("#op").val();
+                var result;
+
+                if (isNaN(a) || isNaN(b)) {
+                    $("#result").text("Please enter valid numbers.");
+                    return;
+                }
+
+                switch (op) {
+                    case "+":
+                        result = a + b;
+                        break;
+                    case "-":
+                        result = a - b;
+                        break;
+                    case "*":
+                        result = a * b;
+                        break;
+                    case "/":
+                        if (b === 0) {
+                            $("#result").text("Division by zero is not allowed.");
+                            return;
+                        }
+                        result = a / b;
+                        break;
+                    default:
+                        $("#result").text("Invalid operator.");
+                        return;
+                }
+
+                $("#result").text(result);
+            });
+
             // TODO: #calc: read #a, #b and #op, convert the values to numbers and display the result in #result
             // TODO: error messages for invalid input and division by zero
         });
