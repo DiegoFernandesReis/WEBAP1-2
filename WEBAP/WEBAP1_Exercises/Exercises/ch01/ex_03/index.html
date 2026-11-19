@@ -8,6 +8,17 @@
     <script>
         $(document).ready(function()
         {
+            $("#greet").click(function() {
+                var firstName = $("#firstName").val();
+                var lastName = $("#lastName").val();
+                if (firstName === "" || lastName === "") {
+                    $("#message").text("Please fill in both fields.").addClass("error");
+                    $("#output").empty();
+                } else {
+                    $("#message").empty().removeClass("error");
+                    $("#output").text("Hello, " + firstName + " " + lastName + "!");
+                }
+            });
             // TODO: #greet: read #firstName and #lastName with val() and display a greeting in #output
 
             // TODO: error message in #message (class error) if a field is empty
