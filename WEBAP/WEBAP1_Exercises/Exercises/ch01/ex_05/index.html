@@ -8,6 +8,24 @@
     <script>
         $(document).ready(function()
         {
+            $("#summary").click(function()
+            {
+                var name = $("#name").val();
+                var email = $("#email").val();
+                var classValue = $("#class").val();
+                var language = $("input[name='language']:checked").val();
+                var newsletter = $("#newsletter").is(":checked") ? "Yes" : "No";
+                var remarks = $("#remarks").val();
+
+                $("#output").empty(); // Clear previous output
+
+                $("#output").append("<li>Name: " + name + "</li>");
+                $("#output").append("<li>E-mail: " + email + "</li>");
+                $("#output").append("<li>Class: " + classValue + "</li>");
+                $("#output").append("<li>Preferred language: " + language + "</li>");
+                $("#output").append("<li>Newsletter: " + newsletter + "</li>");
+                $("#output").append("<li>Remarks: " + remarks + "</li>");
+            });
             // TODO: #summary: display all values in the list #output
 
             // TODO: enable/disable #summary depending on the name field (event input)
