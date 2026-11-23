@@ -1,67 +1,85 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Exercise 1.5</title>
-    <link rel="stylesheet" href="../../../assets/exercise.css">
+    <link rel="stylesheet" href="../../../assets/exercise.css" />
     <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
     <script>
-        $(document).ready(function()
-        {
-            $("#summary").click(function()
-            {
-                var name = $("#name").val();
-                var email = $("#email").val();
-                var classValue = $("#class").val();
-                var language = $("input[name='language']:checked").val();
-                var newsletter = $("#newsletter").is(":checked") ? "Yes" : "No";
-                var remarks = $("#remarks").val();
+     $(document).ready(function () {
 
-                $("#output").empty(); // Clear previous output
+    // Enable the button when a name is entered
+    $("#name").on("input", function () {
+        $("#summary").prop("disabled", $("#name").val() === "");
+    });
 
-                $("#output").append("<li>Name: " + name + "</li>");
-                $("#output").append("<li>E-mail: " + email + "</li>");
-                $("#output").append("<li>Class: " + classValue + "</li>");
-                $("#output").append("<li>Preferred language: " + language + "</li>");
-                $("#output").append("<li>Newsletter: " + newsletter + "</li>");
-                $("#output").append("<li>Remarks: " + remarks + "</li>");
-            });
-            // TODO: #summary: display all values in the list #output
+    // Show the values
+    $("#summary").click(function () {
+        $("#output").empty();
 
-            // TODO: enable/disable #summary depending on the name field (event input)
+        $("#output").append("<li>Name: " + $("#name").val() + "</li>");
+        $("#output").append("<li>E-mail: " + $("#email").val() + "</li>");
+        $("#output").append("<li>Class: " + $("#class").val() + "</li>");
+        $("#output").append("<li>Preferred language: " + $("input[name='language']:checked").val() + "</li>");
+        $("#output").append("<li>Newsletter: " + ($("#newsletter").is(":checked") ? "Yes" : "No") + "</li>");
+        $("#output").append("<li>Remarks: " + $("#remarks").val() + "</li>");
+    });
 
-            // TODO: #reset: clear all fields and the list
-        });
+    // Reset everything
+    $("#reset").click(function () {
+        $("#registration")[0].reset();
+        $("#output").empty();
+        $("#summary").prop("disabled", true);
+    });
+
+});
     </script>
-</head>
-<body>
+  </head>
+  <body>
     <h2>Exercise 1.5 – Registration</h2>
     <form id="registration">
-        <p><label>Name: <input type="text" id="name"></label></p>
-        <p><label>E-mail: <input type="email" id="email"></label></p>
-        <p>
-            <label>Class:
-                <select id="class">
-                    <option value="">– please select –</option>
-                    <option value="1TPIF">1TPIF</option>
-                    <option value="2TPIF">2TPIF</option>
-                    <option value="3TPIF">3TPIF</option>
-                </select>
-            </label>
-        </p>
-        <p>
-            Preferred language:
-            <label><input type="radio" name="language" value="EN" checked> English</label>
-            <label><input type="radio" name="language" value="FR"> French</label>
-            <label><input type="radio" name="language" value="DE"> German</label>
-        </p>
-        <p><label><input type="checkbox" id="newsletter" value="yes"> I want to receive the newsletter</label></p>
-        <p><label>Remarks:<br><textarea id="remarks" rows="3" cols="40"></textarea></label></p>
-        <p>
-            <button type="button" id="summary" disabled>Show summary</button>
-            <button type="button" id="reset">Reset</button>
-        </p>
+      <p>
+        <label>Name: <input type="text" id="name" /></label>
+      </p>
+      <p>
+        <label>E-mail: <input type="email" id="email" /></label>
+      </p>
+      <p>
+        <label
+          >Class:
+          <select id="class">
+            <option value="">– please select –</option>
+            <option value="1TPIF">1TPIF</option>
+            <option value="2TPIF">2TPIF</option>
+            <option value="3TPIF">3TPIF</option>
+          </select>
+        </label>
+      </p>
+      <p>
+        Preferred language:
+        <label
+          ><input type="radio" name="language" value="EN" checked />
+          English</label
+        >
+        <label><input type="radio" name="language" value="FR" /> French</label>
+        <label><input type="radio" name="language" value="DE" /> German</label>
+      </p>
+      <p>
+        <label
+          ><input type="checkbox" id="newsletter" value="yes" /> I want to
+          receive the newsletter</label
+        >
+      </p>
+      <p>
+        <label
+          >Remarks:<br /><textarea id="remarks" rows="3" cols="40"></textarea>
+        </label>
+      </p>
+      <p>
+        <button type="button" id="summary" disabled>Show summary</button>
+        <button type="button" id="reset">Reset</button>
+      </p>
     </form>
     <ul id="output"></ul>
-</body>
+  </body>
 </html>

@@ -8,7 +8,17 @@
     <script>
         $(document).ready(function()
         {
-          
+            $("#add").click(function()
+            {
+                $("#list").append("<li>" + $("#task").val() + "</li>");
+            });
+            
+            $("#clearDone").click(function()
+            {
+                $("#list").remove();
+            });
+            $("#count").text($("#list li").length);
+            });
             // TODO: #add (and Enter in #task): append a new <li> to #list
 
             // TODO: click on an <li>: toggle the class done (event delegation!)
@@ -16,7 +26,7 @@
             // TODO: #clearDone: remove all completed tasks
 
             // TODO: update #count
-        });
+
     </script>
 </head>
 <body>
