@@ -7,55 +7,36 @@
     <link rel="stylesheet" href="../../../assets/exercise.css">
     <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
     <script>
-   $(document).ready(function ()
-        {
-            // #count always shows the number of open tasks
-            function updateCount()
-            {
-                $("#count").text($("#list li").not(".done").length);
+        $(document).ready(function () {
+            let counter = 0;
+            if (e.key === "Enter") {
+               addtask();
             }
+            $("#add").click(function () {
+              addtask();
 
-            // Add: append text of #task as new <li>, clear field, ignore empty
-            function addTask()
-            {
-                var text = $("#task").val().trim();
-                if (text === "") return;
-
-                $("#list").append($("<li>").text(text));
-                $("#task").val("").focus();
-                updateCount();
-            }
-
-            $("#add").click(addTask);
-
-            // Enter in the field also adds the task
-            $("#task").keydown(function (e)
-            {
-                if (e.key === "Enter") addTask();
             });
 
-            // Click on a task toggles "done" (event delegation)
-            $("#list").on("click", "li", function ()
-            {
-                $(this).toggleClass("done");
-                updateCount();
+            $("#clearDone").click(function () {
+                $("#list").remove();
             });
-
-            // Remove completed tasks
-            $("#clearDone").click(function ()
-            {
-                $("#list li.done").remove();
-                updateCount();
-            });
-
-            updateCount();
+            $("#count").text(counter);
         });
-</script>
 
-     
-   
+        function addtask (){
+              $("#list").append("<li>" + $("#task").val() + "</li>");
+                counter++;
+        }
 
+        // TODO: #add (and Enter in #task): append a new <li> to #list
 
+        // TODO: click on an <li>: toggle the class done (event delegation!)
+
+        // TODO: #clearDone: remove all completed tasks
+
+        // TODO: update #count
+
+    </script>
 </head>
 
 <body>

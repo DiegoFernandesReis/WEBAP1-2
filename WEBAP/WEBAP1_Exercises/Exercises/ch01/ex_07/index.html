@@ -8,50 +8,7 @@
     <script>
         $(document).ready(function()
         {
-            $("#setTitle").click(function()
-            {
-                let text = $("#newTitle").val();
-                $("#title").text(text);
-                $("#newTitle").val("");
-            });
-
-            $("#toggleTheme").click(function()
-            {
-                $("body").toggleClass("dark");
-            });
-
-            let box = $("#colorBox");
-            box.mouseenter(function()
-            {
-                box.css("background-color", "orange");
-            });
-            box.mouseleave(function()
-            {
-                box.css("background-color", "");
-            });
-
-            $("#plus").click(function()
-            {
-                let counter = $("#counter");
-                counter.text(Number(counter.text()) + 1);
-            });
-
-            $("#size").change(function()
-            {
-                $("#sample").css("font-size", $(this).val());
-            });
-
-            $("#show").change(function()
-            {
-                if ($(this).is(":checked"))
-                {
-                    $("#secret").show();
-                }
-                else
-                {
-                    $("#secret").hide();
-                }
-            });
+            
         });
         // TODO: rewrite the following plain JavaScript code with jQuery
 
