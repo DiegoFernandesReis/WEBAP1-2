@@ -13,6 +13,22 @@
     <script>
         $(document).ready(function()
         {
+            $(".question").click(function()
+            {
+                $(this).next(".answer").slideToggle();
+                $(this).toggleClass("open");
+            });
+            $("#showAll").click(function()
+            {
+                $(".answer").slideDown();
+                $(".question").addClass("open");
+            });
+            $("#hideAll").click(function()
+            {
+                $(".answer").slideUp();
+                $(".question").removeClass("open");
+            });
+            $("#bar").animate({ width: "100%" }, 2000);
             // TODO: click on a .question: slideToggle() the answer, toggle the class open
 
             // TODO: #showAll / #hideAll

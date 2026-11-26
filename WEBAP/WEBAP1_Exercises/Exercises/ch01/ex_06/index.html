@@ -1,34 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Exercise 1.6</title>
     <link rel="stylesheet" href="../../../assets/exercise.css">
     <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
     <script>
-        $(document).ready(function()
+   $(document).ready(function ()
         {
-            $("#add").click(function()
+            // #count always shows the number of open tasks
+            function updateCount()
             {
-                $("#list").append("<li>" + $("#task").val() + "</li>");
-            });
-            
-            $("#clearDone").click(function()
+                $("#count").text($("#list li").not(".done").length);
+            }
+
+            // Add: append text of #task as new <li>, clear field, ignore empty
+            function addTask()
             {
-                $("#list").remove();
+                var text = $("#task").val().trim();
+                if (text === "") return;
+
+                $("#list").append($("<li>").text(text));
+                $("#task").val("").focus();
+                updateCount();
+            }
+
+            $("#add").click(addTask);
+
+            // Enter in the field also adds the task
+            $("#task").keydown(function (e)
+            {
+                if (e.key === "Enter") addTask();
             });
-            $("#count").text($("#list li").length);
+
+            // Click on a task toggles "done" (event delegation)
+            $("#list").on("click", "li", function ()
+            {
+                $(this).toggleClass("done");
+                updateCount();
             });
-            // TODO: #add (and Enter in #task): append a new <li> to #list
 
-            // TODO: click on an <li>: toggle the class done (event delegation!)
+            // Remove completed tasks
+            $("#clearDone").click(function ()
+            {
+                $("#list li.done").remove();
+                updateCount();
+            });
 
-            // TODO: #clearDone: remove all completed tasks
+            updateCount();
+        });
+</script>
 
-            // TODO: update #count
+     
+   
 
-    </script>
+
 </head>
+
 <body>
     <h2>Exercise 1.6 – To-do list</h2>
     <p>
@@ -39,4 +68,5 @@
     <p>Open tasks: <span id="count">0</span></p>
     <ul id="list"></ul>
 </body>
+
 </html>
